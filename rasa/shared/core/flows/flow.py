@@ -369,6 +369,14 @@ class Flow:
                 question_steps.append(step)
         return question_steps
 
+    def get_utterances(self) -> Set[str]:
+        """Return all utterances used in this flow with `action: utter_...`."""
+        utterances = set()
+        for step in self.steps:
+            if isinstance(step, ActionFlowStep) and step.action.startswith("utter_"):
+                utterances.add(step.action)
+        return utterances
+
 
 def step_from_json(flow_step_config: Dict[Text, Any]) -> FlowStep:
     """Used to read flow steps from parsed YAML.

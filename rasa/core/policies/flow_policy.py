@@ -168,6 +168,7 @@ class FlowPolicy(Policy):
             domain: The model's domain.
             rule_only_data: Slots and loops which are specific to rules and hence
                 should be ignored by this policy.
+            flows: all existing flows for task-oriented processes
             **kwargs: Depending on the specified `needs` section and the resulting
                 graph structure the policy can use different input to make predictions.
 
